@@ -1,0 +1,234 @@
+@font-face {
+    font-family: 'Copyduck';
+    src: url('fonts/Copyduck.otf') format('opentype'),
+         url('fonts/Copyduck.ttf') format('truetype');
+}
+
+body {
+    background-image: url('images/background.jpg'); 
+    background-repeat: repeat; 
+    background-size: auto; 
+    background-attachment: fixed; 
+    background-position: center; 
+    margin: 0;
+    font-family: "Copyduck", "Chewy", system-ui; 
+    color: #d5681b;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.content-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.logo-img {
+    width: 100%; 
+    max-width: 800px;
+    height: auto;
+    object-fit: contain;
+    margin: 20px auto 0;
+}
+
+.calendar-pages {
+    padding: 2.5rem; 
+    margin-right: .3rem;
+}
+
+.calendar-page {
+    width: 100%;
+    max-width: 20rem;
+    margin: 2rem auto;
+    padding: 0.25rem;
+    background-color: #feffbebb;
+    border: 5px dashed #8BCCF0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: center;
+}
+
+.day {
+    width: 2.5rem;
+    height: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0a2d159;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    box-sizing: border-box;
+    padding: 0.25rem;
+    margin: 0.25rem;
+    text-align: center;
+}
+
+.day.checked {
+    background-image: url('images/checkmark.svg');
+    background-size: cover;
+    background-position: center;
+    color: transparent;
+}
+
+.day.checkout {
+    background-image: url('images/checkout.svg');
+    background-size: cover;
+    background-position: center;
+    color: transparent;
+}
+
+.day:hover,
+.day.special-day-13:hover,
+.day.special-day-16:hover,
+.day.checked:hover,
+.day.checkout:hover {
+    transform: scale(3.5);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.day.empty {
+    background-color: transparent;
+    border: none;
+}
+
+.day.special-day-13,
+.day.special-day-16 {
+    background-size: cover;
+    background-position: center;
+}
+
+.day.special-day-13 {
+    background-image: url('images/casaleide.svg');
+}
+
+.day.special-day-16 {
+    background-image: url('images/casatias.svg');
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+    justify-items: center;
+}
+
+.legend-container {
+    background-color: #feffbeaa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 2rem auto; 
+    max-width: 600px; 
+    border: 3px solid #f6a6ecab;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(100% - 2rem);
+}
+
+.legend-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.legend-img {
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%;
+    border: 4px dashed #8BCCF0;
+    margin-right: 0.5rem;
+}
+
+.legend-text {
+    font-family: 'Copyduck', 'Chewy', sans-serif;
+    color: #d5681b;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .content-container {
+        padding-bottom: 0;
+    }
+
+    .calendar-pages {
+        margin-top: 1.5rem; 
+    }
+
+    .calendar-page {
+        width: 100%;
+        padding: 0.5rem;
+    }
+
+    .day {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1rem;
+        padding: 0.25rem;
+        margin-right: 0.25rem;
+    }
+
+    .legend-container {
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 2rem auto;
+        max-width: 600px;
+        display: flex;
+        gap: 1rem;
+    }
+
+    .legend-column {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .legend-img {
+        width: 40px; 
+        height: 40px; 
+    }
+
+    .legend-text {
+        font-size: 0.8rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .calendar-pages {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .calendar-page {
+        padding: 0.25rem;
+    }
+
+    .day {
+        width: 2.5rem;
+        height: 2.5rem;
+        padding: 0.25rem;
+        margin-right: 0.25rem;
+    }
+}
